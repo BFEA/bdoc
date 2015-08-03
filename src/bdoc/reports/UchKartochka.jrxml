@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.6.1.final using JasperReports Library version 5.6.1  -->
+<!-- 2014-12-15T19:20:17 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UchKartochka" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b3edca6d-3803-4dd7-b8db-d13eedcf75a3">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="192"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value="c3ByX3phY2hpc2xlbmllICwxNzMsMzUzO3Nwcl9zZXR0aW5nc2tnICw1MjEsNDA3O2RlcGFydG1l&#xA;bnRzICwwLDA7Z3JvdXBzICwxNjcsMDtzcHJfc2V0dGluZ3MgLDIwLDQxMztzdHVkZW50ICw2OTIs&#xA;MjA7c3ByX3NldHRpbmdzZW4gLDMxLDEwNjs="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="bdloc"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="departments_depart_name" class="java.lang.String"/>
+	<field name="groups_department_code" class="java.lang.Integer"/>
+	<field name="groups_group_semestr" class="java.lang.String"/>
+	<field name="groups_group_formaobuch" class="java.lang.Integer"/>
+	<field name="groups_group_code" class="java.lang.String"/>
+	<field name="groups_group_name" class="java.lang.String"/>
+	<field name="student_student_id" class="java.lang.Integer"/>
+	<field name="student_student_lastname" class="java.lang.String"/>
+	<field name="student_student_name" class="java.lang.String"/>
+	<field name="student_student_middlename" class="java.lang.String"/>
+	<field name="student_student_birthday" class="java.sql.Date"/>
+	<field name="student_nationality_code" class="java.lang.Integer"/>
+	<field name="student_student_addr" class="java.lang.String"/>
+	<field name="student_student_docfrom" class="java.lang.String"/>
+	<field name="student_student_prikaz" class="java.lang.String"/>
+	<field name="student_student_prikazdate" class="java.sql.Date"/>
+	<field name="student_student_photo" class="java.awt.Image"/>
+	<field name="student_student_propiska" class="java.lang.String"/>
+	<field name="student_student_phone" class="java.lang.String"/>
+	<field name="spr_zachislenie_zachislenie_name" class="java.lang.String"/>
+	<field name="spr_settingsen_A_NAMEL" class="java.lang.String"/>
+	<field name="spr_settingsen_A_ADRES" class="java.lang.String"/>
+	<field name="spr_settingsen_A_PHONE" class="java.lang.String"/>
+	<field name="spr_settingsen_A_FAX" class="java.lang.String"/>
+	<field name="spr_settingsen_A_RECTOR" class="java.lang.String"/>
+	<field name="spr_settingsen_A_UOTDEL" class="java.lang.String"/>
+	<field name="spr_settingsen_A_WWW" class="java.lang.String"/>
+	<field name="spr_settingsen_A_EMAIL" class="java.lang.String"/>
+	<field name="spr_settingskg_A_NAMEL" class="java.lang.String"/>
+	<field name="spr_settingskg_A_ADRES" class="java.lang.String"/>
+	<field name="spr_settingskg_A_PHONE" class="java.lang.String"/>
+	<field name="spr_settingskg_A_FAX" class="java.lang.String"/>
+	<field name="spr_settingskg_A_RECTOR" class="java.lang.String"/>
+	<field name="spr_settingskg_A_WWW" class="java.lang.String"/>
+	<field name="spr_settingskg_A_EMAIL" class="java.lang.String"/>
+	<field name="spr_settingskg_PHOTO_INF" class="java.awt.Image"/>
+	<field name="spr_settings_A_NAMEL" class="java.lang.String"/>
+	<field name="spr_settings_A_ADRES" class="java.lang.String"/>
+	<field name="spr_settings_A_PHONE" class="java.lang.String"/>
+	<field name="spr_settings_A_FAX" class="java.lang.String"/>
+	<field name="spr_settings_A_RECTOR" class="java.lang.String"/>
+	<field name="spr_settings_A_WWW" class="java.lang.String"/>
+	<field name="spr_settings_A_EMAIL" class="java.lang.String"/>
+	<field name="spr_settingskg_A_UOTDEL" class="java.lang.String"/>
+	<field name="spr_settings_A_UOTDEL" class="java.lang.String"/>
+	<field name="spr_settingskg_A_NAMES" class="java.lang.String"/>
+	<field name="spr_settings_A_NAMES" class="java.lang.String"/>
+	<field name="spr_settingsen_A_NAMES" class="java.lang.String"/>
+	<field name="formobuchName" class="java.lang.String"/>
+	<field name="Nationality" class="java.lang.String"/>
+	<field name="social_student" class="java.lang.String"/>
+	<field name="studl_docdate" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="146" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="40" width="444" height="30" uuid="4fe41235-abc2-4289-b6a3-4f3e96e4da2e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{spr_settings_A_NAMEL}]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Blank">
+				<reportElement x="460" y="12" width="94" height="96" isRemoveLineWhenBlank="true" uuid="11661dbc-2534-4d9e-8ef3-a94e43e1851b"/>
+				<imageExpression><![CDATA[$F{student_student_photo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="80" width="100" height="20" uuid="469ac7ee-5ffc-4f98-ae21-9f266463f6c2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Программа:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="100" width="170" height="20" uuid="30f983bd-b8e7-4f5c-9e10-5b358cfbf112"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Специальность/направление:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="122" width="100" height="20" uuid="b0d938a7-fd9c-43a0-b592-7c0552a626d0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Группа:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="170" y="80" width="270" height="20" uuid="23983b2f-6715-4376-819a-0e72b7ec1cad"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{departments_depart_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="102" width="270" height="20" uuid="70838c40-da4f-4a33-96ca-df5ac16d6f97"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{groups_group_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="122" width="270" height="20" uuid="7de3a5b6-3c40-467b-aec7-c1dc50dc969f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{groups_group_code}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="454" y="112" width="100" height="30" uuid="666b5e31-b65f-4a76-b547-b2250541c8aa"/>
+				<jr:Code128 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA[$F{student_student_id}]]></jr:codeExpression>
+				</jr:Code128>
+			</componentElement>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="106" y="1" width="254" height="19" uuid="9957fd69-4bed-4e4b-88da-d3fb9d6d49c1"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Учебная карточка студента]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="0" width="94" height="20" uuid="1dfb5191-50e7-4016-ae2d-0e10cec2b4de"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ID студента №"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="21" width="254" height="20" uuid="14e7ecfd-8edb-4abe-bbf3-411f4e554bb3"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{formobuchName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="0" width="100" height="20" uuid="9577e87d-0f97-4f85-881d-8e4440711095"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{student_student_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="336" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="0" width="142" height="20" uuid="bad46ec8-488f-41cb-82da-af127de43341"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Фамилия, Имя, Отчество:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="20" width="111" height="20" uuid="342bd291-d6b4-4a31-b2b5-b3474a3e3109"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Дата рождения:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="40" width="111" height="20" uuid="814bb324-7369-406b-9e12-a2c133b7296b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Место рождения:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="60" width="111" height="20" uuid="4921de3c-fe81-4b4b-bd3c-7880c2a97b5b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Национальность:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="239" y="60" width="90" height="20" uuid="8cb0f391-8c85-4cdf-bc5e-f0ede01c39b0"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Соц. положение:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="80" width="111" height="20" uuid="e5c7ebfd-2f7f-43a3-a639-0f1e15e91432"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Что окончил(а):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="100" width="142" height="20" uuid="f5197b32-1f93-4ddc-bb75-1e2c75685021"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Год окончания:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="120" width="170" height="20" uuid="b1b0b7ee-4880-48cd-85e4-583eac040921"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Адрес местожительства, телефон:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="176" y="120" width="379" height="20" uuid="2c59b843-c8ae-4d20-922c-a228091f1663"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{student_student_addr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="6" y="140" width="170" height="20" uuid="d626e771-aeea-4834-b9ee-48acd3dfac6d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Зачислен(а) приказ в ВУЗ приказ №]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="176" y="140" width="379" height="20" uuid="62f8e144-db38-4d56-a99a-d5a63746a104"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{student_student_prikaz}+" от "+$F{student_student_prikazdate}+", на условиях: "+$F{spr_zachislenie_zachislenie_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="0" width="407" height="20" uuid="dc9df49b-2cc4-4446-9b6b-832d2a833739"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{student_student_lastname}+" "+$F{student_student_name}+" "+$F{student_student_middlename}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.YYYY">
+				<reportElement x="117" y="20" width="160" height="20" uuid="16590623-6e5b-48b9-a2fd-e6164ceb4c40"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{student_student_birthday}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="117" y="40" width="438" height="20" uuid="0bdb393b-3c98-42fc-8328-b42e01c17dfe"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{student_student_propiska}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.YYYY">
+				<reportElement x="117" y="60" width="121" height="20" uuid="83852b86-92e7-4970-a7ab-f33fd03890e3"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nationality}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="329" y="60" width="226" height="20" uuid="d6a4fcb8-da78-4e2b-a262-8e4a47ad8c07"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+			</textField>
+			<textField pattern="">
+				<reportElement x="117" y="80" width="438" height="20" uuid="69893816-04cb-4b79-9b5b-d18ece014aa1"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{student_student_docfrom}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.YYYY">
+				<reportElement x="148" y="100" width="129" height="20" uuid="efce7d5e-6ccc-4d4d-97ed-7ea49c579e3b"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studl_docdate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="56" y="193" width="263" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="46869d41-f2a9-452d-9cf7-91cafafbbf4a"/>
+				<box padding="0" topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="0" rightIndent="0" spacingBefore="0" spacingAfter="0" tabStopWidth="40"/>
+				</textElement>
+				<text><![CDATA[№  и  дата прказа]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="56" y="212" width="263" height="19" uuid="2a886c5c-ddd0-4ddf-9f53-2c254e90ffbb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{student_student_prikaz}+" от "+$F{student_student_prikazdate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="56" y="250" width="263" height="19" uuid="e0c8ad71-b6fe-454e-8076-37dd813c1601"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="319" y="193" width="236" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="c1f8a028-9609-448c-b321-6bca67469f06"/>
+				<box padding="0" topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="0" rightIndent="0" spacingBefore="0" spacingAfter="0" tabStopWidth="40"/>
+				</textElement>
+				<text><![CDATA[Содержание приказа]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="231" width="236" height="19" uuid="5b495c72-33a6-42db-b55d-b351befceb06"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="269" width="236" height="19" uuid="bd642255-ab5a-4fcf-b3c6-a67379d675cb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="6" y="212" width="50" height="19" uuid="a6d80110-6deb-4f60-8eb8-96f20ff344ac"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="6" y="269" width="50" height="19" uuid="4d18f27b-1deb-4cd4-b8ad-a6e268efd220"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="6" y="231" width="50" height="19" uuid="856deb74-938c-417b-9db9-0c7eebe53062"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<staticText>
+				<reportElement x="6" y="173" width="549" height="20" uuid="3d520e89-e4e8-45ca-ba1a-1e76bb6101d9"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Поощрения, взыскания, перерыв в академической учебе, переводы с курса на курс:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="250" width="236" height="19" uuid="ef71a1fc-8859-471c-8c96-2b96d201bb27"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="6" y="193" width="50" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="4de0a292-be70-4baa-8598-6795fd1b7dd1"/>
+				<box padding="0" topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="0" rightIndent="0" spacingBefore="0" spacingAfter="0" tabStopWidth="40"/>
+				</textElement>
+				<text><![CDATA[Курс]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="56" y="231" width="263" height="19" uuid="628cc86a-f2db-4428-b77b-c69a9134d69f"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="56" y="269" width="263" height="19" uuid="9c545893-1674-49e1-bb38-de1348cec91d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="6" y="250" width="50" height="19" uuid="5639f197-8123-4629-8208-faed84338fee"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="212" width="236" height="19" uuid="3f473142-f006-4c0b-9617-98e18459fa06"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="6" y="288" width="50" height="19" uuid="dfa8bb7c-36d6-483a-91ba-bd2b1e9242ad"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="56" y="288" width="263" height="19" uuid="fae91c09-b4d9-4121-9e4a-93bf219b884a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="288" width="236" height="19" uuid="893c0832-b568-46a3-8b53-d2bd5168069e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="6" y="307" width="50" height="19" uuid="59b43ada-8007-4539-952e-79614d232848"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="56" y="307" width="263" height="19" uuid="e5155bd1-3d7f-4eb5-9521-683dc3c6936b"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="307" width="236" height="19" uuid="1715cd5d-e55a-47a5-9a50-53f36adc9de6"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

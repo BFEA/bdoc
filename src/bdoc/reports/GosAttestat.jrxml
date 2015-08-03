@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GosAttestat" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="36" bottomMargin="50" uuid="7dd9fc5e-b2c7-4da3-945e-5221e89d2423">
+	<property name="ireport.zoom" value="1.771561000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="c00fd424-d317-4118-b18b-cdda3b008d16"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="495" height="28" uuid="d0a15393-de77-47f9-89ee-fa4d1a51069f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Студент за весь период обучения выдержал следующие формы Государственной аттестации:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="380" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="48" height="18" uuid="c1262c5e-7d7c-4a96-89c1-b879b9470236"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[№]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="2" width="288" height="18" uuid="f4da269a-29f3-4c50-9d67-65ceff68c70b"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" pdfEncoding="Cp1251"/>
+				</textElement>
+				<text><![CDATA[Название дисциплины]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="2" width="99" height="18" uuid="37852a65-5cb1-4ac5-8dc4-b60821c95fb5"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[Дата и № протокола]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="2" width="60" height="18" uuid="350ee843-0510-4061-a7dd-ced99ffea825"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[Оценка]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="20" width="60" height="18" uuid="0d228dfa-4656-4b38-821e-6d3544760a18"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="20" width="99" height="18" uuid="e464ba9c-32a9-4069-a491-24e1a272d2eb"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="20" width="288" height="18" uuid="48b42a5e-b99e-4da2-9775-0d3990d3b1cf"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="48" height="18" uuid="79139fed-1305-4537-a655-21791d78ca55"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="38" width="60" height="18" uuid="429fa8e7-b785-40ed-99b2-b39fa53a626a"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="38" width="99" height="18" uuid="015589ed-d84a-4697-87bf-083be90ac2a3"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="38" width="288" height="18" uuid="b10e335c-d6ae-4069-bab7-9f38aff9cb7e"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="38" width="48" height="18" uuid="620c3890-a7a1-4b68-b91e-4110fd454297"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="56" width="60" height="18" uuid="4aff0778-d58a-40b0-aae6-980328a3492d"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="56" width="99" height="18" uuid="abcbc970-3b34-450a-93a2-7b9eefcb3262"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="56" width="288" height="18" uuid="3e261989-37b5-4811-b3fb-8afbb0b1fcb9"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="56" width="48" height="18" uuid="1a5c47ef-be90-4205-8262-7989b119bc3e"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="74" width="275" height="20" uuid="a33b6036-6773-4f20-ae92-241735233786"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Решением Государственной аттестационной комиссии от]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="93" width="483" height="20" uuid="ba67dd25-7ad6-4648-846b-4a235bec526b"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[дана рекомендация на продолжение обучения по программе бакалавра ( по программе подготовки]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="113" width="222" height="20" uuid="bf3703c2-b063-4f9f-bf35-f86f28d0f3f8"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[специалиста с нормативным сроком обучения]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="113" width="121" height="20" uuid="b9933ddc-f8a3-4f2b-ae44-58bdd94541a4"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="113" width="47" height="20" uuid="960b4241-ca13-474b-8d41-16512ff42cc9"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[лет).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="133" width="275" height="20" uuid="bd7f98c5-9bc8-4831-907e-a12af2ceabf8"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Решением Государственной аттестационной комиссии от]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="133" width="208" height="20" uuid="7be0c1c7-b3e5-43ee-8eef-1080a107af71"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="153" width="146" height="20" uuid="f5dd9e36-6513-4399-abe5-bf8ef5f1d5e0"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[присвоена степень бакалавра]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="153" width="337" height="20" uuid="77532eb0-a603-42dc-b0eb-dd53d112e319"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="173" width="275" height="20" uuid="8e232f0a-6e62-4a15-b36f-c1c2c8fe1275"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Решением Государственной аттестационной комиссии от]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="173" width="208" height="20" uuid="2d7c388b-f980-4168-ae94-bb6a4c89dca3"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="193" width="299" height="20" uuid="c2da1cfd-ca72-47a0-80d6-e0b02ae9243b"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[дана рекомендация на продолжение обучения в магистратуре]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="193" width="184" height="20" uuid="fb15b176-2fc2-4a06-92fa-5137d3897e21"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="213" width="275" height="20" uuid="c55dd7a4-5fe0-48d1-84f4-d3ce6b69db2b"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Решением Государственной аттестационной комиссии от]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="213" width="208" height="20" uuid="b4279ae0-b9da-4f54-8598-4b193f2f001c"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="233" width="171" height="20" uuid="8e519f1e-e7a5-4485-bd0d-66086d5b1553"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[присвоена квалификация (степень)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="233" width="312" height="20" uuid="b441b173-f814-4c51-a13c-291ac4e2bf48"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="253" width="483" height="20" uuid="6d3a90a7-00ab-48bf-9277-0a13b4657679"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="85" y="286" width="137" height="20" uuid="a2b58449-01eb-4845-832b-9c6546db0b12"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Начальник учебного отдела]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="286" width="208" height="20" uuid="1b889060-a857-499b-b45c-425d2be38232"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="306" width="64" height="20" uuid="9fefaf23-ec89-4716-9ee8-4a6dca283d13"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<text><![CDATA[Дата]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="306" width="208" height="20" uuid="494e6e16-2ae5-434e-9d65-a2225fc67ab8"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="74" width="208" height="20" uuid="117082b9-2a71-4ece-8a62-df121de7592e"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

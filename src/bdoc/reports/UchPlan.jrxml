@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.6.1.final using JasperReports Library version 5.6.1  -->
+<!-- 2015-03-10T15:09:55 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UchPlan" language="groovy" pageWidth="595" pageHeight="421" orientation="Landscape" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="2" bottomMargin="2" whenResourceMissingType="Empty" uuid="83fa8833-d5bd-4fd5-a308-0db1a35cb6f4">
+	<property name="ireport.zoom" value="1.3660269107301415"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mysql-test"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFEFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="student_student_lastname" class="java.lang.String"/>
+	<field name="student_student_name" class="java.lang.String"/>
+	<field name="student_student_middlename" class="java.lang.String"/>
+	<field name="departments_depart_name" class="java.lang.String"/>
+	<field name="uchplanstudents_group_code" class="java.lang.String"/>
+	<field name="uchplanstudents_student_id" class="java.lang.Integer"/>
+	<field name="uchplanstudents_uchPlans_sem" class="java.lang.String"/>
+	<field name="uchplanstudents_disc_code" class="java.lang.String"/>
+	<field name="uchplanstudents_uchPls_clock" class="java.lang.Double"/>
+	<field name="uchplanstudents_uchPls_credit" class="java.lang.Double"/>
+	<field name="uchplanstudents_uchPls_ball" class="java.lang.Double"/>
+	<field name="uchplanstudents_uchPls_ocenka" class="java.lang.String"/>
+	<field name="uchplanstudents_uchPls_controlb" class="java.lang.String"/>
+	<field name="uchplanstudents_uchPls_date" class="java.sql.Date"/>
+	<field name="VedomNumber" class="java.lang.Integer"/>
+	<field name="groups_group_name" class="java.lang.String"/>
+	<field name="student_student_id" class="java.lang.Integer"/>
+	<field name="spr_discipline_disc_name" class="java.lang.String"/>
+	<field name="groups_group_semestr" class="java.lang.String"/>
+	<field name="spr_settings_A_NAMES" class="java.lang.String"/>
+	<title>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="40" y="7" width="100" height="19" uuid="f25a8cd3-6348-4980-b189-f9581b243eca"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{spr_settings_A_NAMES}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="434" y="6" width="100" height="20" uuid="9d0ab681-3fc4-45f6-9a80-f2c02691ed14"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="26" width="494" height="20" uuid="18ed1056-0778-4a8e-a92c-a062b5b9e92f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Учебный план"+" "+$F{student_student_lastname}+" "+$F{student_student_name}+" "+$F{student_student_middlename}+" ("+$F{uchplanstudents_student_id}+") "]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="72" height="12" uuid="c51514aa-8a8b-451f-8a4d-89367c3abf81">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Программа:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="12" width="72" height="12" uuid="b4c9d329-7c82-4e08-9067-9e001c9dcbb4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Направление:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="24" width="72" height="12" uuid="16f3aeca-574b-4056-bdfd-e3f6da262bdc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Группа:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="72" y="12" width="421" height="12" uuid="0411f893-d801-4cdc-8036-daca5bc1a3cd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{groups_group_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="24" width="421" height="12" uuid="a5c126f2-d14a-4144-bade-0796308c5090">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{uchplanstudents_group_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="0" width="421" height="12" uuid="565309b8-bcae-4dbf-8696-f8c02303a1e9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{departments_depart_name}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="73" y="49" width="27" height="1" uuid="1a815ca7-a81b-4100-84e0-780baefce473"/>
+			</line>
+			<staticText>
+				<reportElement x="100" y="36" width="45" height="12" uuid="3b4a8df1-71cb-41dd-89c7-20b6071c0284">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Семестр]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="36" width="23" height="12" uuid="13ec956c-a9d5-43dd-9eff-06e2a859a007">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{uchplanstudents_uchPlans_sem}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="36" width="71" height="12" uuid="69acddbb-6c54-4b6a-9aa9-7128469bcd98">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Курс:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="17" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="40" height="17" uuid="197d5dfe-9ed4-4bdb-874f-f5301e3a6e9d">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Код дисциплины]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="0" width="240" height="17" uuid="681fae22-a4d1-4b71-952f-1b7ed4e1fd71">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[Наименование дисциплины и учебных практик]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="0" width="50" height="17" uuid="e8bb9594-4d4f-44c2-b125-b812db4fc0d6">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[Количество часов]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="55" height="17" uuid="3ffe5396-6df4-4625-97f9-22ca4ec49bf8">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[Оценка]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="0" width="42" height="17" uuid="47df39c6-c374-4f22-b3ad-13f7bc009ebb">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[№ ведом.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="517" y="0" width="56" height="17" uuid="135b8977-5958-47d9-b344-3fb50f1dfefa">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[Дата сдачи]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="40" height="17" uuid="d09c355a-9861-4c39-a119-97df2dcf8404">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[Кредиты]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="40" height="17" uuid="a86fe7ba-1d7e-4a55-9d33-ca8d802ebdc9">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[Баллы]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement x="0" y="0" width="540" height="16" uuid="54816126-bc26-47dc-b5f8-1047bf87fcd5">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textField>
+					<reportElement x="50" y="0" width="240" height="16" uuid="5d9b0142-7e65-40b1-be91-7f090c36e3db">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="1.0"/>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["   "+$F{spr_discipline_disc_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="290" y="0" width="50" height="16" uuid="2a2fb310-f9d1-4276-88dc-f5f1921e4933">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="1.0"/>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{uchplanstudents_uchPls_clock}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="340" y="0" width="40" height="16" uuid="02da99f1-3464-49ef-9f5b-dc242eb215db">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="1.0"/>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{uchplanstudents_uchPls_credit}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="380" y="0" width="40" height="16" uuid="ddfebfa6-6c12-42fc-8a36-259364c58c12">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="1.0"/>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{uchplanstudents_uchPls_ball}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField pattern="dd-MM-yyyy">
+				<reportElement x="517" y="0" width="56" height="16" uuid="6e05e683-e743-4897-a4aa-4768d0dba13a">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{uchplanstudents_uchPls_date}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="420" y="0" width="55" height="16" uuid="fea9ac89-1708-46dc-b9e2-7352cb4f565a">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{uchplanstudents_uchPls_ocenka}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="475" y="0" width="42" height="16" uuid="67fea37d-6f38-4543-8394-118f6b3ce064">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VedomNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="0" width="40" height="16" uuid="48146985-6843-4d1f-a2b2-d767b425721c">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{uchplanstudents_disc_code}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="37">
+			<staticText>
+				<reportElement positionType="Float" x="1" y="10" width="539" height="20" uuid="00a7b22f-b5be-4464-8e69-e50f10341b2d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ Приказ №_______ от "___"___________ 20__ г.		            Начальник учебного отдела _______________  Н.Т. Суеркулова]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

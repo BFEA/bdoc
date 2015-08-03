@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.6.1.final using JasperReports Library version 5.6.1  -->
+<!-- 2015-03-12T14:40:18 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="29d67c89-5bea-45df-b5ff-e319755b0fe9">
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="NAMEL_ru" class="java.lang.String"/>
+	<field name="NAMEL_en" class="java.lang.String"/>
+	<field name="NAMEL_kg" class="java.lang.String"/>
+	<field name="ADRES_kg" class="java.lang.String"/>
+	<field name="ADRES_en" class="java.lang.String"/>
+	<field name="ADRES_ru" class="java.lang.String"/>
+	<field name="PHONE_kg" class="java.lang.String"/>
+	<field name="FAX_kg" class="java.lang.String"/>
+	<field name="EMAIL_kg" class="java.lang.String"/>
+	<field name="WWW_kg" class="java.lang.String"/>
+	<field name="lastname" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="middlename" class="java.lang.String"/>
+	<field name="group_code" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sex" class="java.lang.String"/>
+	<field name="group_semestr" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="group_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="formobuch_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RECTOR_kg" class="java.lang.String"/>
+	<field name="PRIM_kg" class="java.lang.String"/>
+	<field name="PHOTO_INF_kg" class="java.awt.Image"/>
+	<field name="NAMES_ru" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="143" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="160" height="140" uuid="ad676c42-ff07-463b-a12a-7835f5bf0eaa"/>
+				<imageExpression><![CDATA[$F{PHOTO_INF_kg}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="160" y="0" width="320" height="15" uuid="f6e479d8-713d-4dec-a4e0-d53720f76602">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMEL_kg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="15" width="320" height="15" uuid="fc9b69ba-685f-4bc5-9dcc-7901f2ea91dd">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMEL_ru}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="30" width="320" height="15" uuid="8e2627ea-c095-49a9-8a89-12b50349898b">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMEL_en}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="160" y="45" width="395" height="1" uuid="5309f4a9-ba5c-4168-ade6-35f819339e99"/>
+			</line>
+			<textField>
+				<reportElement x="160" y="50" width="320" height="10" uuid="c2c1046c-c71d-418f-8c58-a6c5251a453f"/>
+				<textElement textAlignment="Left">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADRES_kg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="60" width="320" height="10" uuid="06fe6cd5-2e29-4497-b62a-73f73516440c"/>
+				<textElement textAlignment="Left">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADRES_ru}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="70" width="320" height="10" uuid="76d073a5-ba89-45a6-b280-bf78acbf1469"/>
+				<textElement textAlignment="Left">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADRES_en}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="79" width="20" height="13" uuid="745631c8-ba15-4f33-8d86-c7936fb675ec"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tel:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="79" width="100" height="13" uuid="b484d92c-bf4a-4054-9669-33e893503c60"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PHONE_kg}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="91" width="20" height="14" uuid="743eb04d-1d5b-449e-ae93-e652e5a1799d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fax:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="92" width="70" height="13" uuid="c7f40b58-7077-4697-9737-2c4963b06329"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FAX_kg}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="285" y="79" width="40" height="13" uuid="a25d845e-2eac-493b-bed0-4329a4367fe0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[E-mail:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="325" y="79" width="90" height="12" uuid="ece7fef0-4665-4590-b17d-725fdd780331"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EMAIL_kg}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="285" y="91" width="40" height="14" uuid="e854461d-8a2b-45bf-a6ed-f0c9c1fb59ec"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[web-page:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="325" y="92" width="100" height="13" uuid="1fd3a969-7711-429f-81c2-cb62bdffd010"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{WWW_kg}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<textField pattern="d MMM. yyyy г.">
+				<reportElement x="10" y="0" width="130" height="20" uuid="eb31f464-9bde-4cf6-a9c7-0ac5eb15bf69"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="20" width="130" height="20" uuid="61252cdf-0552-44c1-9feb-9ab8cf8d6036"/>
+				<box padding="0" bottomPadding="2">
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[№]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="25" width="220" height="30" uuid="35ada93d-4a05-47f7-ad0b-7a2f2010cb55"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="25" isBold="true"/>
+				</textElement>
+				<text><![CDATA[С П Р А В К А]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="105" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="15" width="90" height="20" uuid="fbd51e4c-fd81-456b-9853-3ec1517d05ab"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[Дана в том, что]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="170" y="15" width="230" height="20" uuid="8857cfb4-b058-4ae7-bf6a-910caafebd86"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lastname}+" "+$F{name}+" "+$F{middlename}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="400" y="15" width="142" height="20" uuid="e46f6b14-aa90-4c14-a5fd-1953ff8799ae"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[действительно является]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="35" width="70" height="20" uuid="cfa06881-9771-4e45-8e8d-933047e72871"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sex}.equalsIgnoreCase("Ж") ? "студенткой" : 
+	($F{sex}.equalsIgnoreCase("М") ? "студентом": "студ.")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="35" width="30" height="20" uuid="35a8a9dd-e7e1-482f-bedb-eeac1f013695"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{group_semestr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="35" width="60" height="20" uuid="3ec1c1fc-5eb9-4d63-8e71-ce9a46df0991"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[семестра]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="220" y="35" width="50" height="20" uuid="b0352e0f-ad49-4c4e-aa97-2704670823c0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(
+	$F{group_semestr}.intValue()==01 ? "I курса" :
+	$F{group_semestr}.intValue()==02 ? "I курса" :
+	$F{group_semestr}.intValue()==03 ? "II курса" :
+	$F{group_semestr}.intValue()==04 ? "II курса" :
+	$F{group_semestr}.intValue()==05 ? "III курса" :
+	$F{group_semestr}.intValue()==06 ? "III курса" : 	 
+	$F{group_semestr}.intValue()==07 ? "IV курса" :
+	$F{group_semestr}.intValue()==8 ? "IV курса" :
+	$F{group_semestr}.intValue()==9 ? "V курса" :
+	$F{group_semestr}.intValue()==10 ? "V курса" :
+	$F{group_semestr}.intValue()==11 ? "VI курса" :
+	$F{group_semestr}.intValue()==12 ? "VI курса" : " PHd"
+)]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="35" width="39" height="20" uuid="ddba34f5-b697-4f24-a6bb-a4c0be4fa835"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[группы]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="309" y="35" width="81" height="19" uuid="eef79e18-22f7-4aba-baa1-28b905e21410"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "+$F{group_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="35" width="90" height="19" uuid="ff3d36bc-f241-4723-8005-9252e6ef75fe"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{formobuch_name}.equalsIgnoreCase("Бакалавриат -  заочное") ? "заочного" : 
+$F{formobuch_name}.equalsIgnoreCase("Магистратура - заочная") ? "заочного" :
+$F{formobuch_name}.equalsIgnoreCase("Специальность - заочно") ? "заочного" :
+$F{formobuch_name}.equalsIgnoreCase("Бакалавриат - очная") ? "очного" :
+$F{formobuch_name}.equalsIgnoreCase("Магистратура - очная") ? "очного" :
+$F{formobuch_name}.equalsIgnoreCase("Специальность - очная") ? "очного" : "заочного"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="480" y="35" width="70" height="19" uuid="d1e37127-e476-4f1d-a501-f531da4e1e38"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[отделения]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="55" width="170" height="20" uuid="a8ce05bb-8adc-45b6-9977-81b055c97ef3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[специальность/направления]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="230" y="55" width="319" height="20" uuid="88e85f23-d02b-4088-b374-69c5adf43e22"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{group_name}+"."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="60" y="75" width="482" height="25" uuid="7f134459-2e15-4ce1-aa42-11d99dc44961"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Обучение контрактное. Стипендию не получает. Справка дана по месту требования.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="-1" y="0" width="131" height="30" uuid="0e610c1c-4d53-4188-b674-4a9251081709"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ректор "+$F{NAMES_ru}+", "+$F{PRIM_kg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="5" width="100" height="25" uuid="f4e6f34c-b677-4cd6-afed-ef779465fe83"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RECTOR_kg}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UchebnCarStud" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="81cb0b13-cce8-4478-af0d-10c82eeef135">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     student.`student_id` AS student_student_id,
+     student.`student_lastname` AS student_student_lastname,
+     student.`student_name` AS student_student_name,
+     student.`student_middlename` AS student_student_middlename,
+     student.`student_photo` AS student_student_photo
+FROM
+     `student` student
+WHERE
+      student_id=20122177]]>
+	</queryString>
+	<field name="student_student_id" class="java.lang.Integer"/>
+	<field name="student_student_lastname" class="java.lang.String"/>
+	<field name="student_student_name" class="java.lang.String"/>
+	<field name="student_student_middlename" class="java.lang.String"/>
+	<field name="student_student_photo" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<textField pattern="2">
+				<reportElement x="24" y="21" width="100" height="58" uuid="63d661f9-a980-4070-bad3-cf0ded8eb00b"/>
+				<textFieldExpression><![CDATA[$F{student_student_photo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="91" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="133" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="124" height="133" uuid="802f7946-4b6b-4b24-8558-232aaae8cb9a"/>
+				<imageExpression><![CDATA[$F{student_student_photo}]]></imageExpression>
+			</image>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

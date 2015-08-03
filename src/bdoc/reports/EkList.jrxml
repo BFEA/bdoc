@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.6.1.final using JasperReports Library version 5.6.1  -->
+<!-- 2015-03-31T17:09:25 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EkList" language="groovy" pageWidth="595" pageHeight="842" columnWidth="525" leftMargin="50" rightMargin="20" topMargin="50" bottomMargin="20" uuid="edc6233b-df1d-4201-99f5-8e696f5897f8">
+	<property name="ireport.zoom" value="1.4641000000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value="c3ByX2Rpc2NpcGxpbmUgLDI0NiwyMDI7c3ByX2Zvcm1vYnVjaCAsMCwzMTtzdHVkZW50ICw1MTcs&#xA;MTMyO2dyb3VwcyAsNTA1LDEzO3VjaHBsYW5zdHVkZW50cyAsMzAsMjA0O3Nwcl9zZXR0aW5ncyAs&#xA;MjY0LDA7"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mysql-10.3"/>
+	<parameter name="ExpDate" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="Lastname" class="java.lang.String"/>
+	<field name="Name" class="java.lang.String"/>
+	<field name="Middlename" class="java.lang.String"/>
+	<field name="Gruppa" class="java.lang.String"/>
+	<field name="Disc" class="java.lang.String"/>
+	<field name="disc_Name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="form_Name" class="java.lang.String"/>
+	<field name="bafeName" class="java.lang.String"/>
+	<field name="uchP_semestr" class="java.lang.String"/>
+	<field name="st_ID" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="68" y="0" width="350" height="20" uuid="9aa7bba1-3502-4ab3-bae4-1f1cc0d82751"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bafeName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.yyyy HH:mm:ss">
+				<reportElement x="422" y="0" width="103" height="20" uuid="9a13966c-a070-4401-ad5b-0c4243672537"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="288" y="20" width="237" height="20" uuid="88ab8848-b47b-4e66-99e4-99599b0f966b"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{form_Name}+" Семестр -     "]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="140" y="0" width="148" height="20" uuid="a76a4dd0-9ccf-4ab5-abff-ee9556684386"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Экзаменационный лист №]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="0" width="100" height="18" uuid="aaab484c-d88f-4b4f-b7b9-31bf8a710228"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="525" height="20" uuid="7be1312c-50f2-42fa-815a-778f605a037e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[(для сдачи экзамена или зачетавне группы - подшивается к основной ведомости)]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="299" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="68" height="20" uuid="eddaba20-eb92-4172-a042-7c46d1d57566"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[Группа]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="68" height="20" uuid="c4baf966-8b3a-4611-874e-f98289978f05"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[Дисциплина]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="68" height="20" uuid="ae8c2307-f3c7-41fb-bf6d-93d0a08173bf"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[Экзаменатор]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="68" y="0" width="72" height="20" uuid="f5bc0b5b-932d-4746-a6c0-2ebdf4e20e5d"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Gruppa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="20" width="457" height="20" uuid="07702070-0a9d-4f58-ad5c-ea9cebec9c6a"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["("+$F{Disc}+") "+$F{disc_Name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="68" y="40" width="320" height="20" uuid="92df5571-f871-4a22-b49b-b0a60f7edc78"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="79" width="188" height="20" uuid="27cf78a9-96bf-4379-a601-f21ed8386b43"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[Фамилия студента, инициалы студента]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="188" y="79" width="337" height="20" uuid="7da76084-fb7d-41eb-b110-a2831794b238"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Lastname}+" "+$F{Name}+" "+$F{Middlename}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="99" width="188" height="20" uuid="12ed0f1e-915f-4dbb-a73f-033b956f224e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[Идентификационный номер студента]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="188" y="99" width="100" height="20" uuid="d19c8b34-f77c-44dd-b3af-2387f6ae421e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{st_ID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="119" width="188" height="20" uuid="efbbc2d1-2539-4763-8804-97054d2bcad4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[Дата выдачи]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="139" width="188" height="20" uuid="7778133c-ea0b-463f-9ae0-50daa411926a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[Направление действительно до]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy г.">
+				<reportElement x="188" y="119" width="100" height="20" uuid="1897fdd8-bae9-4655-8639-7e7a77ced1cd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy г." isBlankWhenNull="true">
+				<reportElement x="188" y="139" width="100" height="20" uuid="61ede33d-2199-4b92-acb7-70ce0972a24a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ExpDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="186" width="40" height="20" uuid="2a62b79b-4e45-4a74-a036-88686b67eda3"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Оценка]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="186" width="119" height="20" uuid="1a8eabc3-06a6-4938-a2f1-b48aef62db2b"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="150" width="140" height="20" uuid="6fe8d59c-0e63-4153-962a-cd507f0db672"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Начальник учебного отдела]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="150" width="84" height="20" uuid="84a4c6aa-29e4-4ff6-ae74-7d6e8b7df0ea"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="170" width="59" height="20" uuid="71f8a95a-07d2-4ae5-bb0b-ede60ff53f79"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Дата сдачи]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="170" width="164" height="20" uuid="fa36faba-7224-44c3-9342-66721cd58cc3"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="190" width="119" height="20" uuid="72f1e607-4c8a-424e-90d7-28083fb40ee9"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="190" width="104" height="20" uuid="71384702-511d-4a59-ab14-84f07e93847c"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Подпись экзаменатора]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

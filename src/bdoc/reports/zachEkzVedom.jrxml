@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="zachEkzVedom" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d60bcd03-bbd6-44e9-a15b-1078e24a9abc">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="bdloc"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="Familiya" class="java.lang.String"/>
+	<field name="Imya" class="java.lang.String"/>
+	<field name="Otchestvo" class="java.lang.String"/>
+	<field name="ID" class="java.lang.Integer"/>
+	<field name="GroupCode" class="java.lang.String"/>
+	<field name="ball" class="java.lang.Double"/>
+	<field name="Ocenka" class="java.lang.String"/>
+	<field name="DiscCode" class="java.lang.String"/>
+	<field name="DiscName" class="java.lang.String"/>
+	<field name="SemestrGroup" class="java.lang.String"/>
+	<field name="Formaobuchen" class="java.lang.String"/>
+	<field name="BafeName" class="java.lang.String"/>
+	<field name="Uotdel" class="java.lang.String"/>
+	<field name="excellLow" class="java.lang.Integer"/>
+	<field name="ecxellTop" class="java.lang.Integer"/>
+	<field name="goodLow" class="java.lang.Integer"/>
+	<field name="goodTop" class="java.lang.Integer"/>
+	<field name="soLow" class="java.lang.Integer"/>
+	<field name="soTop" class="java.lang.Integer"/>
+	<field name="Year1" class="java.lang.Integer"/>
+	<field name="Year2" class="java.lang.Integer"/>
+	<field name="SemUchPlan" class="java.lang.String"/>
+	<field name="vedomNum" class="java.lang.Integer"/>
+	<title>
+		<band height="68" splitType="Stretch">
+			<textField>
+				<reportElement x="70" y="0" width="419" height="30" uuid="b4dc59d2-ac2e-4860-8b36-c21cdece597e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BafeName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="30" width="280" height="30" uuid="927f529e-da55-4831-9daf-665f05ea18bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Formaobuchen}+" "+$F{GroupCode}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="420" y="30" width="110" height="30" uuid="7ef46b02-0c02-4aba-8ad8-f7550f190d3a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["№ ведомости: "+$F{vedomNum}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="107" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="100" height="11" uuid="f00a0561-67cc-44d4-a288-5877755b42aa">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Семестр:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="10" width="210" height="11" uuid="1c9e1141-1e61-420e-bb42-1c60e33789d2">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SemUchPlan}+"       "+$F{Year1}+"-"+$F{Year2}+" учебный год"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="21" width="100" height="11" uuid="8d3d4063-18da-4f88-8159-0bd47a75b2b4">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Форма контроля:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="110" y="21" width="210" height="11" forecolor="#000000" backcolor="#FFFFFF" uuid="b69049ab-5520-46c9-a23b-f91e546fc103">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="0" topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="0" rightIndent="0" spacingBefore="0" spacingAfter="0" tabStopWidth="40"/>
+				</textElement>
+				<text><![CDATA[зачет, экзамен (подчеркнуть)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="32" width="100" height="11" uuid="64960cd4-f484-4fea-a56b-5f7331954d1b">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Дисциплина:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="32" width="370" height="11" uuid="d931c6ff-5a9f-4cbf-ad48-693d414eb9fa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DiscCode}+" "+$F{DiscName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="43" width="100" height="11" uuid="5ae57a5e-6fdc-4428-8e16-d454e3f41550">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ФИО экзаменаторов:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="110" y="43" width="370" height="11" forecolor="#000000" backcolor="#FFFFFF" uuid="b3ef8e47-1f67-4e07-ac41-929347c9f236">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="0" topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="0" rightIndent="0" spacingBefore="0" spacingAfter="0" tabStopWidth="40"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="54" width="190" height="11" uuid="f2450ec7-7549-4a2a-b8e1-2ff7289058a0">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Дата проведения рубежного контроля:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="65" width="120" height="11" uuid="5684aded-9cd7-465e-88d0-552ce6a14ff4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[2. "__  " ___________ 20___ г.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="80" width="190" height="11" uuid="044b97b7-4977-434b-b5d2-0c890420d683">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Дата проведения семестрового контроля:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="80" width="120" height="11" uuid="2f25a038-cf86-474a-bc41-a009588360c7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ "___  " ___________ 20___ г.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="91" width="200" height="11" uuid="c7127c59-7f34-4f46-a51f-319def7b97a1">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Дата оформления отчетности:]]></text>
+			</staticText>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="210" y="91" width="180" height="11" uuid="7fcc5e47-449c-4f12-987c-2e7ec5f72cdd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="54" width="120" height="11" uuid="abfb22a2-e927-40d5-8a67-29fb4224d12d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[1. "__  " ___________ 20___ г.]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="40" height="29" uuid="3b3894ed-41de-41b5-9af2-9d4322e44bde"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[№]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="0" width="170" height="29" uuid="c69765ce-2628-494a-841b-6a3a8fdca70a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Фамилия Имя Отчество]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="60" height="29" uuid="0faa4fd2-f0db-4407-887f-39b5f0809b96"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[№ ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="80" height="29" uuid="b0c063c7-887b-4024-a4f0-d6b1337a1e50"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+					<paragraph lineSpacingSize="1.0"/>
+				</textElement>
+				<text><![CDATA[Семестровый контроль]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="0" width="70" height="29" uuid="9a0b7923-8d2e-4fe6-9f0f-90e15589c6c5"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Оценка]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="100" height="29" uuid="78d735cb-10f4-4899-97d2-7c7229809a79"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Подпись экзаменатора]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<textField>
+				<reportElement x="10" y="0" width="40" height="17" uuid="ea7c542d-3910-4418-b9fd-a6e581f5e479">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="0" width="170" height="17" uuid="2ab71e20-31e3-4393-a3e0-6a9e25530989">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "+$F{Familiya}+" "+$F{Imya}+" "+$F{Otchestvo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="60" height="17" uuid="a93314f9-7edd-4a91-ab89-7c4e6c26f8f7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="80" height="17" uuid="b1925aef-ab27-4260-b1cd-b947fe072c89">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ball}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="360" y="0" width="70" height="17" uuid="01bb56a5-5bc1-49d8-a538-5c0bc7e0a8b2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{Ocenka}.equals("Не удов.")?(null):($F{Ocenka}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="430" y="0" width="100" height="17" uuid="e03ba5ec-7e11-42f2-8b17-9bd1d9cdb9c7">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="131" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="26" width="110" height="13" uuid="2a224fbd-ce5e-4839-ac03-adabdb929daf">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Из них получивших отлично]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="104" width="120" height="21" uuid="9839564a-5479-4918-8eb7-2b61a2a62e2c"/>
+				<box>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Uotdel}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="450" y="39" width="80" height="13" uuid="0bcdbcff-d22e-4b99-99b5-cd70a7d8dfad"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Отлично]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="26" width="80" height="13" uuid="664bd48d-faf4-4188-ab26-91664661f9a9"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Хорошо]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="390" y="26" width="60" height="13" uuid="36721285-5d9a-4645-8440-99b5c213057b"/>
+				<textFieldExpression><![CDATA[$F{goodLow}+" - "+$F{goodTop}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="78" width="200" height="13" uuid="f92d5eb5-9707-4795-93af-4fcb6141a305">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Число студентов на явившихся на экзамен, зачет ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="39" width="70" height="13" uuid="9561b0e2-6b21-40a5-a344-c24c188b0854">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="13" width="150" height="13" uuid="a42ec98a-bf2b-4ee3-b609-10ef19a71381">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Число студентов на экзамене, зачете ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="78" width="70" height="13" uuid="8e22674c-bbc4-4c7c-be77-da1925a2b4e4">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="26" width="70" height="13" uuid="3e1f5a50-912d-46df-82a6-c08853e1a7f0">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="39" width="60" height="13" uuid="b0188e4a-90bd-41b3-9cee-0a19d6111bf0"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA["хорошо"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="65" width="60" height="13" uuid="5569e3b5-da0f-417b-b981-346003a8794a"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA["неудов."]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="52" width="60" height="13" uuid="1a783988-75cb-4a11-af29-f9c9df9b1c0b"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA["удов."]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="52" width="70" height="13" uuid="5b39f047-0f34-4d9d-88f2-a6c051f6d063">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="91" width="70" height="13" uuid="605337bf-a64b-437f-a8d9-d14b1473bef3">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="91" width="200" height="13" uuid="314ff685-0433-4774-aad1-2131d6c29978">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Число студентов не допущенных к экзамену, зачету]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="65" width="70" height="13" uuid="80e32967-6049-48fa-b99e-b14c4fa0735d">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="13" width="80" height="13" uuid="2ed42e1b-6229-410e-a6ae-acccaf080186"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Удовлетворительно]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="390" y="39" width="60" height="13" uuid="1d247cf3-ee11-45e1-93bb-ed3bacac536b"/>
+				<textFieldExpression><![CDATA[$F{excellLow}+" - "+$F{ecxellTop}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="104" width="170" height="21" uuid="443e9888-8a0f-426d-adbb-7ff3d6e1eee3">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Начальник учебного отдела]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="390" y="13" width="60" height="13" uuid="75923b28-f9e3-4349-b9b5-4d8652b100a6"/>
+				<textFieldExpression><![CDATA[$F{soLow}+" - "+$F{soTop}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="13" width="90" height="13" uuid="dc0bbc17-df93-459c-aaed-aceea493e5aa">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="26" width="60" height="13" uuid="9a38565b-cda5-4f3e-869c-a6fbdf0c6d70"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA["отлично"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="104" width="130" height="21" uuid="ec1fc459-b3e8-43bb-9b3d-34b703256294">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="64">
+			<textField isBlankWhenNull="true">
+				<reportElement x="480" y="40" width="73" height="16" uuid="8fef51ed-6dde-489a-be2f-26ae5948208f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
