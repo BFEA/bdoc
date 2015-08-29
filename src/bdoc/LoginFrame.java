@@ -22,7 +22,7 @@ public class LoginFrame extends javax.swing.JFrame {
 
     public LoginFrame() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
     private void adminPanelGui(String userName, String userFIO){

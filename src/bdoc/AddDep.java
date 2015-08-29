@@ -14,7 +14,7 @@ public class AddDep extends javax.swing.JFrame {
    
     public AddDep() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
     @SuppressWarnings("unchecked")

@@ -12,7 +12,7 @@ public class AddRegion extends javax.swing.JFrame {
 
     public AddRegion() {
         initComponents();
-         conn = dbconnector.ConnectorDb();
+         conn = dbconnector.getConnection();
     }
 
     @SuppressWarnings("unchecked")

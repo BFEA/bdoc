@@ -16,7 +16,7 @@ public class SettingsEN extends javax.swing.JFrame {
 
     public SettingsEN() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
     private void FillAll(){

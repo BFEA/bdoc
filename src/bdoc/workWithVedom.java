@@ -29,7 +29,7 @@ public class workWithVedom extends javax.swing.JFrame {
       
     public workWithVedom() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
         FillComboDiscip();
         isSemectrActive();
     }

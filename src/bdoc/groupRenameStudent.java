@@ -18,7 +18,7 @@ public class groupRenameStudent extends javax.swing.JFrame {
                 
     public groupRenameStudent() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
         FillCombo();
     }
     

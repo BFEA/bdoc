@@ -13,7 +13,7 @@ public class AddGroup extends mainBdoc {
  
     public AddGroup() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
         FillCombo();
         FillDep();
         FillTeacher();

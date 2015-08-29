@@ -24,7 +24,7 @@ public class AddStudent extends javax.swing.JFrame {
             
     public AddStudent() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
         FillCombo();
     
     }

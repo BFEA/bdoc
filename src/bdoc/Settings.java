@@ -13,7 +13,7 @@ public class Settings extends javax.swing.JFrame {
     
     public Settings() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
         FillAll();
     }
     

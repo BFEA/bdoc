@@ -13,7 +13,7 @@ public class AddDiscipline extends javax.swing.JFrame {
    
     public AddDiscipline() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
    

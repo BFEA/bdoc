@@ -13,7 +13,7 @@ public class AddUzvan extends javax.swing.JFrame {
     
     public AddUzvan() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
     @SuppressWarnings("unchecked")

@@ -13,7 +13,7 @@ public class AddFormobuch extends javax.swing.JFrame {
    
     public AddFormobuch() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
    

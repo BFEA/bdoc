@@ -20,7 +20,7 @@ public class studentHibClass extends dbconnector {
     PreparedStatement pst;
     
     public studentHibClass(){
-        conn = ConnectorDb();
+        conn = getConnection();
     }
     
     public List<Integer> studIdArr (String grCode){
@@ -108,7 +108,6 @@ public class studentHibClass extends dbconnector {
                         String name = rs.getString("student_name");
                         String middlename = rs.getString("student_middlename");
                         studentName = lastname+" "+name+" "+middlename;
-                        
                     }
             }catch(SQLException ex){
 //                JOptionPane.showMessageDialog(null, " getStudentNamesById "+ex); 

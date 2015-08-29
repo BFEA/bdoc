@@ -13,7 +13,7 @@ public class AddUstep extends javax.swing.JFrame {
     
     public AddUstep() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
    

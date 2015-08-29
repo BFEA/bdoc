@@ -12,7 +12,7 @@ public class AddDoljnost extends javax.swing.JFrame {
 
     public AddDoljnost() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
     @SuppressWarnings("unchecked")

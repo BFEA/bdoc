@@ -1,6 +1,14 @@
 package bdoc;
 
+import DAO.DepartmentDAO;
+import DAO.DisciplineDAO;
+import DAO.GroupsDAO;
+import DAO.TeacherDAO;
+import bup.AddBUpYearsForm;
+import bup.AddBupForm;
 import excelReports.ExecuteCreateJournal;
+import bup.DisplayBUPYears;
+import reschetChasov.AddRaschetChasovForm;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.HeadlessException;
@@ -16,6 +24,7 @@ import net.proteanit.sql.DbUtils;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -25,6 +34,8 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import javax.swing.table.TableCellRenderer;
+import reschetChasov.AddRaschetChasov;
+
 /**
  *
  * @author Altynbek Shaidyldaev
@@ -41,7 +52,7 @@ public class mainBdoc extends javax.swing.JFrame {
    
     public mainBdoc() {
         initComponents();
-        conn=dbconnector.ConnectorDb();
+        conn=dbconnector.getConnection();
         Update_table_Departments();
         Update_table_Teachers();
         Update_table_Students();
@@ -126,6 +137,7 @@ public class mainBdoc extends javax.swing.JFrame {
         }
 
     public boolean semestrActive(){
+        
         String sql = "SELECT A_VED FROM spr_settings WHERE A_ID=1";
         try{
         pst = conn.prepareStatement(sql);
@@ -502,6 +514,13 @@ public class mainBdoc extends javax.swing.JFrame {
     }
     public void FillCombo(){
         
+        GroupsDAO gr = new GroupsDAO();
+        List<String> groups = gr.getGroupsList();
+        
+        for (int i = 0; i < groups.size(); i++) {
+            groupsCombo.addItem(groups.get(i));
+        }
+        
         try{
             String sql= "SELECT * FROM spr_nationality ORDER BY nationality_name ASC";
             pst=conn.prepareStatement(sql);
@@ -528,6 +547,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 String disc_name = rs.getString("disc_name");
                 planeComboBoxDisciplina.addItem(disc_name);
                 studUchPlDisciplinaComboB1.addItem(disc_name);
+                bup_disс_name.addItem(disc_name);
                
             }
             
@@ -692,6 +712,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 String teacher_lastname = rs.getString("teacher_lastname");
                 planeComboBoxPrepodavatel.addItem(teacher_lastname);
                 comboTeacherEditGroup.addItem(teacher_lastname);
+                teacherLastname_list_combo.addItem(teacher_lastname);
               }
             
             
@@ -1141,6 +1162,12 @@ public class mainBdoc extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        raschet_popup = new javax.swing.JPopupMenu();
+        add_new_raschet = new javax.swing.JMenuItem();
+        popup_raschet_separator = new javax.swing.JPopupMenu.Separator();
+        update_raschet_table = new javax.swing.JMenuItem();
+        teachers_popup = new javax.swing.JPopupMenu();
+        update_teacher_table = new javax.swing.JMenuItem();
         tabPanel = new javax.swing.JTabbedPane();
         tabStructure = new javax.swing.JPanel();
         downPanelStructure = new javax.swing.JTabbedPane();
@@ -1559,6 +1586,99 @@ public class mainBdoc extends javax.swing.JFrame {
         searchButton1 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         searchStateResult = new javax.swing.JTable();
+        bup_main_pane = new javax.swing.JPanel();
+        bup_tables_panel = new javax.swing.JTabbedPane();
+        bup_info_panel = new javax.swing.JPanel();
+        add_bup_toolbar = new javax.swing.JToolBar();
+        jLabel7 = new javax.swing.JLabel();
+        add_bup_year_button = new javax.swing.JButton();
+        add_bup_label = new javax.swing.JLabel();
+        add_bup_button = new javax.swing.JButton();
+        bup_chage_toolbar = new javax.swing.JToolBar();
+        update_bup_table = new javax.swing.JButton();
+        bup_years_label = new javax.swing.JLabel();
+        bup_years_start_combo = new javax.swing.JComboBox();
+        bup_years_and_label = new javax.swing.JLabel();
+        bup_years_end_combo = new javax.swing.JComboBox();
+        bup_depart_label = new javax.swing.JLabel();
+        bup_depart_combo = new javax.swing.JComboBox();
+        bup_semestr_label = new javax.swing.JLabel();
+        bup_semestr_combo = new javax.swing.JComboBox();
+        bup_table_scroll = new javax.swing.JScrollPane();
+        bup_table = new javax.swing.JTable();
+        raschet_chasov_tab = new javax.swing.JPanel();
+        raschetChasovToolbar = new javax.swing.JToolBar();
+        jLabel25 = new javax.swing.JLabel();
+        department_list_combo = new javax.swing.JComboBox();
+        reaschetChasovToolbarAdd = new javax.swing.JToolBar();
+        raschet_table_scroll = new javax.swing.JScrollPane();
+        raschet_table = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        po_raschetu_panel = new javax.swing.JPanel();
+        lectures_raschet = new javax.swing.JTextField();
+        nir_raschet_label = new javax.swing.JLabel();
+        konsult_group = new javax.swing.JTextField();
+        group_course_raschet = new javax.swing.JTextField();
+        seminars_raschet_label = new javax.swing.JLabel();
+        vkrRukov_raschet_label = new javax.swing.JLabel();
+        kol_studvGr_label = new javax.swing.JLabel();
+        grou_student_count = new javax.swing.JTextField();
+        konsult_ind = new javax.swing.JTextField();
+        recenzirovanie_raschet_label = new javax.swing.JLabel();
+        uchastie_v_gak_label = new javax.swing.JLabel();
+        konsultInd_raschet_label = new javax.swing.JLabel();
+        rukovodstvo_raschet_label = new javax.swing.JLabel();
+        seminar_raschet = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        konsultGR_raschet_label = new javax.swing.JLabel();
+        kursov_raschet = new javax.swing.JTextField();
+        nir_raschet = new javax.swing.JTextField();
+        predipl_raschet_label = new javax.swing.JLabel();
+        groupsCombo = new javax.swing.JComboBox();
+        teacherLastname_list_combo = new javax.swing.JComboBox();
+        teacher_lastname_label = new javax.swing.JLabel();
+        lectures_raschet_label = new javax.swing.JLabel();
+        course_label = new javax.swing.JLabel();
+        predipl_prac = new javax.swing.JTextField();
+        rukov_vkr = new javax.swing.JTextField();
+        recenziya_raschet = new javax.swing.JTextField();
+        uchastie_v_gak_raschet = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        practica_raschet = new javax.swing.JTextField();
+        po_bup_panel = new javax.swing.JPanel();
+        raspred_uchVrem_panel = new javax.swing.JPanel();
+        bup_auditorn_label = new javax.swing.JLabel();
+        bup_lection_label = new javax.swing.JLabel();
+        bup_practika_label = new javax.swing.JLabel();
+        bup_individual_label = new javax.swing.JLabel();
+        bup_srs_label = new javax.swing.JLabel();
+        bup_auditorn_field = new javax.swing.JFormattedTextField();
+        bup_lection_field = new javax.swing.JFormattedTextField();
+        bup_seminars_field = new javax.swing.JFormattedTextField();
+        bup_individual_field = new javax.swing.JFormattedTextField();
+        bup_srs_field = new javax.swing.JFormattedTextField();
+        bup_nir_label = new javax.swing.JLabel();
+        bup_nir_field = new javax.swing.JFormattedTextField();
+        bup_kontrol_label = new javax.swing.JFormattedTextField();
+        bup_disс_name = new javax.swing.JComboBox();
+        bup_zachet_label = new javax.swing.JLabel();
+        bup_ekzamen_field = new javax.swing.JFormattedTextField();
+        bup_kursov_field = new javax.swing.JFormattedTextField();
+        bup_clock_field = new javax.swing.JFormattedTextField();
+        bup_credits_field = new javax.swing.JFormattedTextField();
+        bup_ekzamen_label = new javax.swing.JLabel();
+        bup_disc_label = new javax.swing.JLabel();
+        bup_semestr_combo1 = new javax.swing.JComboBox();
+        bup_kursov_label = new javax.swing.JLabel();
+        bup_disc_code = new javax.swing.JTextField();
+        bup_kontol_label = new javax.swing.JLabel();
+        bup_semestr_label1 = new javax.swing.JLabel();
+        bup_credits_label = new javax.swing.JLabel();
+        bup_clock_label = new javax.swing.JLabel();
+        bup_zachet_field = new javax.swing.JFormattedTextField();
+        individual_plan = new javax.swing.JPanel();
+        jScrollPane21 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         mainMenuBar = new javax.swing.JMenuBar();
         menuSettings = new javax.swing.JMenu();
         jmenuSettings = new javax.swing.JMenuItem();
@@ -1587,6 +1707,26 @@ public class mainBdoc extends javax.swing.JFrame {
         jMenuUserLogin = new javax.swing.JMenu();
         jMenuUserFIO = new javax.swing.JMenu();
         date_txt = new javax.swing.JMenu();
+
+        add_new_raschet.setText("Добавить новый");
+        add_new_raschet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_raschetActionPerformed(evt);
+            }
+        });
+        raschet_popup.add(add_new_raschet);
+        raschet_popup.add(popup_raschet_separator);
+
+        update_raschet_table.setText("Обновить");
+        update_raschet_table.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_raschet_tableActionPerformed(evt);
+            }
+        });
+        raschet_popup.add(update_raschet_table);
+
+        update_teacher_table.setText("jMenuItem1");
+        teachers_popup.add(update_teacher_table);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BDoc");
@@ -2027,9 +2167,9 @@ public class mainBdoc extends javax.swing.JFrame {
         downPanelPlaneLayout.setHorizontalGroup(
             downPanelPlaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(downPanelPlaneLayout.createSequentialGroup()
-                .addComponent(ScrollPanelPlane, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
+                .addComponent(ScrollPanelPlane, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editPanelPlane, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE))
+                .addComponent(editPanelPlane, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE))
             .addComponent(downPlaneButtonPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         downPanelPlaneLayout.setVerticalGroup(
@@ -2935,7 +3075,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addGroup(tabStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TabStudentEditTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tabStudentsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 122, Short.MAX_VALUE))
+                .addGap(0, 120, Short.MAX_VALUE))
         );
 
         tabPanel.addTab("Студенты  ", new javax.swing.ImageIcon(getClass().getResource("/images/students.png")), tabStudents); // NOI18N
@@ -3246,7 +3386,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addGroup(tabStateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tabStateScrollPanel)
                     .addComponent(tabStateEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE))
-                .addGap(0, 102, Short.MAX_VALUE))
+                .addGap(0, 101, Short.MAX_VALUE))
         );
 
         tabStateEdit.getAccessibleContext().setAccessibleName("Редактирование");
@@ -3351,7 +3491,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addComponent(EditPanelCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Страны", CountryPanel);
@@ -3443,7 +3583,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addComponent(EditPanelNation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Национальности", jPanel7);
@@ -3535,7 +3675,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addComponent(EditPanelRegion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Области", jPanel8);
@@ -3627,7 +3767,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addComponent(EditPanelDoljnost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Должности", jPanel9);
@@ -3719,7 +3859,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addComponent(EditPanelUchenZvan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ученые звания", jPanel10);
@@ -3811,7 +3951,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addComponent(EditPanelUchenStep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ученые степени", jPanel11);
@@ -3903,7 +4043,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addComponent(EditPanelStatusPPS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Статус ППС", panelSprStatusPPS);
@@ -3995,7 +4135,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addComponent(EditPanelDisciplines, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Дисциплины", jPanel13);
@@ -4087,7 +4227,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addComponent(EditPanelUsZachisl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Условия зачисления", jPanel14);
@@ -4179,7 +4319,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addComponent(EditPanelFormob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Формы обучения", jPanel15);
@@ -4271,7 +4411,7 @@ public class mainBdoc extends javax.swing.JFrame {
                 .addComponent(EditPanelSostOb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Состояние обучения", jPanel16);
@@ -4329,7 +4469,7 @@ public class mainBdoc extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(450, Short.MAX_VALUE))
+                .addContainerGap(446, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jTabbedPane1))
         );
@@ -4371,7 +4511,7 @@ public class mainBdoc extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 106, Short.MAX_VALUE)
+            .addGap(0, 99, Short.MAX_VALUE)
         );
 
         searchStudentTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -4451,7 +4591,7 @@ public class mainBdoc extends javax.swing.JFrame {
         panelStateSearchLayout.setVerticalGroup(
             panelStateSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelStateSearchLayout.createSequentialGroup()
-                .addContainerGap(166, Short.MAX_VALUE)
+                .addContainerGap(159, Short.MAX_VALUE)
                 .addGroup(panelStateSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchStateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4476,6 +4616,536 @@ public class mainBdoc extends javax.swing.JFrame {
         jTabSearch.getAccessibleContext().setAccessibleName("");
 
         tabPanel.addTab("Поиск  ", new javax.swing.ImageIcon(getClass().getResource("/images/search.png")), tabSearch, "Поиск студентов и сотрудников"); // NOI18N
+
+        add_bup_toolbar.setFloatable(false);
+        add_bup_toolbar.setRollover(true);
+
+        jLabel7.setText(" Добавить учебные годы: ");
+        add_bup_toolbar.add(jLabel7);
+
+        add_bup_year_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/adds.png"))); // NOI18N
+        add_bup_year_button.setFocusable(false);
+        add_bup_year_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add_bup_year_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        add_bup_year_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add_bup_year_buttonMouseClicked(evt);
+            }
+        });
+        add_bup_toolbar.add(add_bup_year_button);
+
+        add_bup_label.setText(" Добавить БУП: ");
+        add_bup_toolbar.add(add_bup_label);
+
+        add_bup_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/adds.png"))); // NOI18N
+        add_bup_button.setFocusable(false);
+        add_bup_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add_bup_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        add_bup_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add_bup_buttonMouseClicked(evt);
+            }
+        });
+        add_bup_toolbar.add(add_bup_button);
+
+        bup_chage_toolbar.setFloatable(false);
+        bup_chage_toolbar.setRollover(true);
+
+        update_bup_table.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/refresh.png"))); // NOI18N
+        update_bup_table.setFocusable(false);
+        update_bup_table.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        update_bup_table.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        update_bup_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                update_bup_tableMouseClicked(evt);
+            }
+        });
+        bup_chage_toolbar.add(update_bup_table);
+
+        bup_years_label.setText("   Базовый учебный план года: ");
+        bup_chage_toolbar.add(bup_years_label);
+
+        bup_chage_toolbar.add(bup_years_start_combo);
+
+        bup_years_and_label.setText(" - ");
+        bup_chage_toolbar.add(bup_years_and_label);
+
+        bup_chage_toolbar.add(bup_years_end_combo);
+
+        bup_depart_label.setText("  По направлению: ");
+        bup_chage_toolbar.add(bup_depart_label);
+
+        bup_chage_toolbar.add(bup_depart_combo);
+
+        bup_semestr_label.setText("   Семестр: ");
+        bup_chage_toolbar.add(bup_semestr_label);
+
+        bup_semestr_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2" }));
+        bup_chage_toolbar.add(bup_semestr_combo);
+
+        bup_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Код дисциплины", "Наименование дисциплины", "Всего час.", "Кредит", "Аудиторн.", "Лекции", "Практика", "Индивид", "СРС", "Зачет", "Экзамен", "Курсовая работа", "Контрольн. работа", "Нир", "Семестр"
+            }
+        ));
+        bup_table_scroll.setViewportView(bup_table);
+
+        javax.swing.GroupLayout bup_info_panelLayout = new javax.swing.GroupLayout(bup_info_panel);
+        bup_info_panel.setLayout(bup_info_panelLayout);
+        bup_info_panelLayout.setHorizontalGroup(
+            bup_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bup_info_panelLayout.createSequentialGroup()
+                .addComponent(bup_chage_toolbar, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(add_bup_toolbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(bup_info_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bup_table_scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        bup_info_panelLayout.setVerticalGroup(
+            bup_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bup_info_panelLayout.createSequentialGroup()
+                .addGroup(bup_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bup_chage_toolbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(add_bup_toolbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bup_table_scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        bup_tables_panel.addTab("Базовый учебный план", bup_info_panel);
+
+        raschetChasovToolbar.setRollover(true);
+
+        jLabel25.setText(" Департамент:");
+        raschetChasovToolbar.add(jLabel25);
+
+        raschetChasovToolbar.add(department_list_combo);
+
+        reaschetChasovToolbarAdd.setFloatable(false);
+        reaschetChasovToolbarAdd.setRollover(true);
+
+        raschet_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Нименование дисциплин", "Курс", "Группа", "Кол. студ. в группе", "Лекции по УП", "Лекции в нагрузке", "Семин. по УП", "Семин. в нагрузке", "Курс раб по УП", "Курс. раб(Рук)", "НИР по УП", "НИР в нагрузке", "Консульт групп", "Консульт инд", "СРС", "Практика", "Зачет", "Экзамен", "Преддипл практ", "Руков. ВКР", "Реценз", "Участие в ГАК", "Всего часов", "ФИО преп", "Примечание"
+            }
+        ));
+        raschet_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                raschet_tableMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                raschet_tableMouseReleased(evt);
+            }
+        });
+        raschet_table_scroll.setViewportView(raschet_table);
+
+        po_raschetu_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("По расчету"));
+
+        nir_raschet_label.setText("НИР(засчитать в нагрузку): ");
+
+        seminars_raschet_label.setText("Семинары(засчитать в нагрузку): ");
+
+        vkrRukov_raschet_label.setText("Руководство ВКР: ");
+
+        kol_studvGr_label.setText("Кол-во студ в гр.:");
+
+        recenzirovanie_raschet_label.setText("Рецензирование: ");
+
+        uchastie_v_gak_label.setText("Участие в ГАК:");
+
+        konsultInd_raschet_label.setText("Консультатции(инд-х):");
+
+        rukovodstvo_raschet_label.setText("Курсовая работа(руководство): ");
+
+        jLabel35.setText("Группа:");
+
+        konsultGR_raschet_label.setText("Консультатции(групповых):");
+
+        predipl_raschet_label.setText("Преддипл. практика: ");
+
+        groupsCombo.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                groupsComboPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
+
+        teacher_lastname_label.setText("Преподаватель: ");
+
+        lectures_raschet_label.setText("Лекции(засчитать в нагрузку): ");
+
+        course_label.setText("Курс: ");
+
+        jLabel26.setText("Практика: ");
+
+        javax.swing.GroupLayout po_raschetu_panelLayout = new javax.swing.GroupLayout(po_raschetu_panel);
+        po_raschetu_panel.setLayout(po_raschetu_panelLayout);
+        po_raschetu_panelLayout.setHorizontalGroup(
+            po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                                .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(rukovodstvo_raschet_label)
+                                        .addComponent(lectures_raschet_label)
+                                        .addComponent(nir_raschet_label, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(konsultGR_raschet_label, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                                        .addComponent(teacherLastname_list_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(practica_raschet)
+                                            .addComponent(lectures_raschet, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                                            .addComponent(kursov_raschet, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                                            .addComponent(nir_raschet, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                                            .addComponent(konsult_group, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                                            .addComponent(konsult_ind, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                                                    .addComponent(seminars_raschet_label)
+                                                    .addGap(12, 12, 12)
+                                                    .addComponent(seminar_raschet, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, po_raschetu_panelLayout.createSequentialGroup()
+                                                    .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(predipl_raschet_label)
+                                                        .addComponent(vkrRukov_raschet_label)
+                                                        .addComponent(recenzirovanie_raschet_label)
+                                                        .addComponent(uchastie_v_gak_label))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(rukov_vkr)
+                                                        .addComponent(predipl_prac)
+                                                        .addComponent(recenziya_raschet)
+                                                        .addComponent(uchastie_v_gak_raschet, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                                                .addComponent(kol_studvGr_label)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(grou_student_count, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(111, 111, 111))))))
+                            .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                                .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(konsultInd_raschet_label)
+                                    .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                                        .addComponent(course_label)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(group_course_raschet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel35)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(groupsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(teacher_lastname_label)
+                            .addComponent(jLabel26))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        po_raschetu_panelLayout.setVerticalGroup(
+            po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(course_label)
+                            .addComponent(group_course_raschet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel35)
+                            .addComponent(groupsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lectures_raschet_label)
+                            .addComponent(lectures_raschet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(kursov_raschet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rukovodstvo_raschet_label))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nir_raschet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nir_raschet_label))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(konsult_group, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(konsultGR_raschet_label))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(konsultInd_raschet_label)
+                            .addComponent(konsult_ind, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(po_raschetu_panelLayout.createSequentialGroup()
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(kol_studvGr_label)
+                            .addComponent(grou_student_count, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(seminars_raschet_label)
+                            .addComponent(seminar_raschet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(predipl_raschet_label)
+                            .addComponent(predipl_prac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(vkrRukov_raschet_label)
+                            .addComponent(rukov_vkr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(recenzirovanie_raschet_label)
+                            .addComponent(recenziya_raschet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(uchastie_v_gak_label)
+                            .addComponent(uchastie_v_gak_raschet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel26)
+                    .addComponent(practica_raschet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(po_raschetu_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(teacher_lastname_label)
+                    .addComponent(teacherLastname_list_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        po_bup_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("По БУП"));
+        po_bup_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        raspred_uchVrem_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Распределение учебного времени"));
+
+        bup_auditorn_label.setText("Аудиторные всего:");
+
+        bup_lection_label.setText("Лекции:");
+
+        bup_practika_label.setText("Семинары: ");
+
+        bup_individual_label.setText("Индивидуальные:");
+
+        bup_srs_label.setText("СРС:");
+
+        bup_auditorn_field.setEditable(false);
+
+        javax.swing.GroupLayout raspred_uchVrem_panelLayout = new javax.swing.GroupLayout(raspred_uchVrem_panel);
+        raspred_uchVrem_panel.setLayout(raspred_uchVrem_panelLayout);
+        raspred_uchVrem_panelLayout.setHorizontalGroup(
+            raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(raspred_uchVrem_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(raspred_uchVrem_panelLayout.createSequentialGroup()
+                        .addGroup(raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bup_auditorn_label)
+                            .addComponent(bup_lection_label)
+                            .addComponent(bup_practika_label))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bup_lection_field)
+                            .addComponent(bup_seminars_field)
+                            .addComponent(bup_auditorn_field, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)))
+                    .addGroup(raspred_uchVrem_panelLayout.createSequentialGroup()
+                        .addGroup(raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bup_individual_label)
+                            .addComponent(bup_srs_label))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bup_individual_field)
+                            .addComponent(bup_srs_field))))
+                .addContainerGap())
+        );
+        raspred_uchVrem_panelLayout.setVerticalGroup(
+            raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(raspred_uchVrem_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bup_auditorn_label)
+                    .addComponent(bup_auditorn_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bup_lection_label)
+                    .addComponent(bup_lection_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bup_practika_label)
+                    .addComponent(bup_seminars_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bup_individual_label)
+                    .addComponent(bup_individual_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(raspred_uchVrem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bup_srs_label)
+                    .addComponent(bup_srs_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        po_bup_panel.add(raspred_uchVrem_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 53, -1, -1));
+
+        bup_nir_label.setText("НИР:");
+        po_bup_panel.add(bup_nir_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 226, -1, -1));
+        po_bup_panel.add(bup_nir_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 223, 37, -1));
+        po_bup_panel.add(bup_kontrol_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 192, 37, -1));
+
+        po_bup_panel.add(bup_disс_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 16, 239, -1));
+
+        bup_zachet_label.setText("Зачет:");
+        po_bup_panel.add(bup_zachet_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 102, -1, -1));
+        po_bup_panel.add(bup_ekzamen_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 130, 37, -1));
+        po_bup_panel.add(bup_kursov_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 161, 37, -1));
+        po_bup_panel.add(bup_clock_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 42, 37, -1));
+
+        bup_credits_field.setEditable(false);
+        po_bup_panel.add(bup_credits_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 68, 37, -1));
+
+        bup_ekzamen_label.setText("Экзамен:");
+        po_bup_panel.add(bup_ekzamen_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 133, -1, -1));
+
+        bup_disc_label.setText("Код дисциплины");
+        po_bup_panel.add(bup_disc_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 19, 94, -1));
+
+        bup_semestr_combo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        po_bup_panel.add(bup_semestr_combo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 254, -1, -1));
+
+        bup_kursov_label.setText("Курсовая работа:");
+        po_bup_panel.add(bup_kursov_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 164, -1, -1));
+
+        bup_disc_code.setEditable(false);
+        po_bup_panel.add(bup_disc_code, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 16, 91, -1));
+
+        bup_kontol_label.setText("Контр. работа:");
+        po_bup_panel.add(bup_kontol_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 195, -1, -1));
+
+        bup_semestr_label1.setText("Семестр:");
+        po_bup_panel.add(bup_semestr_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 254, -1, -1));
+
+        bup_credits_label.setText("Кредиты (всего) :");
+        po_bup_panel.add(bup_credits_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 71, -1, -1));
+
+        bup_clock_label.setText("Всего час:");
+        po_bup_panel.add(bup_clock_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 45, -1, -1));
+        po_bup_panel.add(bup_zachet_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 99, 37, -1));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(po_raschetu_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(po_bup_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(po_bup_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                    .addComponent(po_raschetu_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout raschet_chasov_tabLayout = new javax.swing.GroupLayout(raschet_chasov_tab);
+        raschet_chasov_tab.setLayout(raschet_chasov_tabLayout);
+        raschet_chasov_tabLayout.setHorizontalGroup(
+            raschet_chasov_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(raschet_chasov_tabLayout.createSequentialGroup()
+                .addComponent(raschetChasovToolbar, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(reaschetChasovToolbarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(raschet_chasov_tabLayout.createSequentialGroup()
+                .addGroup(raschet_chasov_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(raschet_table_scroll)
+                    .addGroup(raschet_chasov_tabLayout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 251, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        raschet_chasov_tabLayout.setVerticalGroup(
+            raschet_chasov_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(raschet_chasov_tabLayout.createSequentialGroup()
+                .addGroup(raschet_chasov_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(raschetChasovToolbar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reaschetChasovToolbarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(raschet_table_scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        bup_tables_panel.addTab("Расчет часов", raschet_chasov_tab);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"
+            }
+        ));
+        jScrollPane21.setViewportView(jTable2);
+
+        javax.swing.GroupLayout individual_planLayout = new javax.swing.GroupLayout(individual_plan);
+        individual_plan.setLayout(individual_planLayout);
+        individual_planLayout.setHorizontalGroup(
+            individual_planLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(individual_planLayout.createSequentialGroup()
+                .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 1271, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        individual_planLayout.setVerticalGroup(
+            individual_planLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(individual_planLayout.createSequentialGroup()
+                .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        bup_tables_panel.addTab("Индивидуальный план", individual_plan);
+
+        javax.swing.GroupLayout bup_main_paneLayout = new javax.swing.GroupLayout(bup_main_pane);
+        bup_main_pane.setLayout(bup_main_paneLayout);
+        bup_main_paneLayout.setHorizontalGroup(
+            bup_main_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bup_tables_panel)
+        );
+        bup_main_paneLayout.setVerticalGroup(
+            bup_main_paneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bup_main_paneLayout.createSequentialGroup()
+                .addComponent(bup_tables_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 78, Short.MAX_VALUE))
+        );
+
+        tabPanel.addTab("Базовый учебный план  ", new javax.swing.ImageIcon(getClass().getResource("/images/ucplans.png")), bup_main_pane, ""); // NOI18N
 
         mainMenuBar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         mainMenuBar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -4643,7 +5313,7 @@ public class mainBdoc extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 718, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -7642,7 +8312,7 @@ public class mainBdoc extends javax.swing.JFrame {
                   fieldMaterGroup.setText(add1);
              }
        }catch(SQLException sqlex){
-           JOptionPane.showMessageDialog(null, "planeComboBoxDisciplinaActionPerformed "+sqlex);
+           JOptionPane.showMessageDialog(null, "planeBoxDisciplinaActionPerformed "+sqlex);
        }
 
     }//GEN-LAST:event_comboTeacherEditGroupPopupMenuWillBecomeInvisible
@@ -7659,8 +8329,139 @@ public class mainBdoc extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_journalBallovPrintActionPerformed
 
+    private void update_bup_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_bup_tableMouseClicked
+        
+        DisplayBUPYears dbp = new DisplayBUPYears();        
+        DepartmentDAO dep = new DepartmentDAO();
+        List<String> bupStartYear = dbp.fillComboBupStartYears();
+        List<String> bupEndYear = dbp.fillComboBupEndYears();
+        List<String> depList = dep.getDepartmentNames();
+        
+        for( int i = 0; i < bupStartYear.size(); i++){
+            bup_years_start_combo.addItem(bupStartYear.get(i));
+        }
+        
+        for(int j = 0; j < bupEndYear.size(); j++){
+            bup_years_end_combo.addItem(bupEndYear.get(j));
+        }
+        
+        for (int k = 0; k < depList.size(); k++) {
+            department_list_combo.addItem(depList.get(k));
+        }
+        
+        
+        AddBupForm adbY = new AddBupForm();
+        adbY.updateBupTable(bup_table);
+        
+    }//GEN-LAST:event_update_bup_tableMouseClicked
 
-    
+    private void add_bup_year_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_bup_year_buttonMouseClicked
+        bup.AddBUpYearsForm abup = new AddBUpYearsForm();
+        abup.setVisible(true);
+    }//GEN-LAST:event_add_bup_year_buttonMouseClicked
+
+    private void add_bup_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_bup_buttonMouseClicked
+        AddBupForm abupf = new AddBupForm();
+        abupf.setVisible(true);
+    }//GEN-LAST:event_add_bup_buttonMouseClicked
+
+    private void raschet_tableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_raschet_tableMouseReleased
+        if (evt.isPopupTrigger()) {
+            raschet_popup.show(evt.getComponent(), evt.getX(), evt.getY());
+        } 
+    }//GEN-LAST:event_raschet_tableMouseReleased
+
+    private void update_raschet_tableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_raschet_tableActionPerformed
+        AddRaschetChasov addRas = new AddRaschetChasov();
+        addRas.updateRaschetChasovTable(raschet_table);
+    }//GEN-LAST:event_update_raschet_tableActionPerformed
+
+    private void add_new_raschetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_raschetActionPerformed
+        AddRaschetChasovForm raschet = new AddRaschetChasovForm();
+        raschet.setVisible(true);
+    }//GEN-LAST:event_add_new_raschetActionPerformed
+
+    private void groupsComboPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_groupsComboPopupMenuWillBecomeInvisible
+        String grCode = groupsCombo.getSelectedItem().toString();
+
+        GroupsDAO grD = new GroupsDAO();
+        Integer semestr =Integer.parseInt(grD.getGroupInfo("group_semestr", grCode));
+        group_course_raschet.setText(grD.getGroupCourse(semestr).toString());
+        grou_student_count.setText(grD.getStudentCountInGroup(grCode).toString());
+
+    }//GEN-LAST:event_groupsComboPopupMenuWillBecomeInvisible
+
+    private void raschet_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_raschet_tableMouseClicked
+        
+        DisciplineDAO dc = new DisciplineDAO();
+        TeacherDAO td = new TeacherDAO();
+        
+        int row = raschet_table.getSelectedRow();
+        String disc_name = (raschet_table.getValueAt(row, 0).toString());
+        String group_course = (raschet_table.getValueAt(row, 1).toString());
+        String group = (raschet_table.getValueAt(row, 2).toString());
+        String stud_kolvo = (raschet_table.getValueAt(row, 3).toString());        
+        String semestr = (raschet_table.getValueAt(row, 4).toString());
+        String lectures = (raschet_table.getValueAt(row, 5).toString());
+        String lectures_r = (raschet_table.getValueAt(row, 6).toString());
+        String seminars_practika = (raschet_table.getValueAt(row, 7).toString());        
+        String seminars_practika_r = (raschet_table.getValueAt(row, 8).toString());
+        String kurs_rabota = (raschet_table.getValueAt(row, 9).toString());
+        String kurs_rabota_r = (raschet_table.getValueAt(row, 10).toString());
+        String nir = (raschet_table.getValueAt(row, 11).toString());
+        String nir_r = (raschet_table.getValueAt(row, 12).toString());
+        String individual = (raschet_table.getValueAt(row, 13).toString());
+        String consult_gr = (raschet_table.getValueAt(row, 14).toString());
+        String consult_ind = (raschet_table.getValueAt(row, 15).toString());
+        String srs = (raschet_table.getValueAt(row, 16).toString());
+        String practica = (raschet_table.getValueAt(row, 17).toString());
+        String zachet = (raschet_table.getValueAt(row, 18).toString());
+        String ekzamen = (raschet_table.getValueAt(row, 19).toString());
+        String predipl_pract = (raschet_table.getValueAt(row, 20).toString());
+        String rukovodstvo_vkr = (raschet_table.getValueAt(row, 21).toString());
+        String recenziya = (raschet_table.getValueAt(row, 22).toString());
+        String uchastie_v_gak = (raschet_table.getValueAt(row, 23).toString());
+        String vsego_chasov = (raschet_table.getValueAt(row, 24).toString());
+        String ects = (raschet_table.getValueAt(row, 25).toString());
+        String teacher_lastname = (raschet_table.getValueAt(row, 26).toString());
+        
+        Integer auditorn = Integer.parseInt(lectures)+Integer.parseInt(seminars_practika);
+        
+        
+        bup_disс_name.setSelectedItem(disc_name);
+        String disc_code_to_textbox = dc.getDisciplineCode(disc_name);
+        bup_disc_code.setText(disc_code_to_textbox);
+        group_course_raschet.setText(group_course);
+        groupsCombo.setSelectedItem(group);
+        grou_student_count.setText(stud_kolvo);
+        bup_semestr_combo1.setSelectedItem(semestr);
+        bup_lection_field.setText(lectures);
+        lectures_raschet.setText(lectures_r);
+        bup_seminars_field.setText(seminars_practika);
+        seminar_raschet.setText(seminars_practika_r);
+        bup_kursov_field.setText(kurs_rabota);
+        kursov_raschet.setText(kurs_rabota_r);
+        bup_nir_field.setText(nir);
+        nir_raschet.setText(nir_r);
+        bup_individual_field.setText(individual);
+        konsult_group.setText(consult_gr);
+        konsult_ind.setText(consult_ind);
+        bup_srs_field.setText(srs);
+        practica_raschet.setText(practica);
+        bup_zachet_field.setText(zachet);
+        bup_ekzamen_field.setText(ekzamen);
+        predipl_prac.setText(predipl_pract);
+        rukov_vkr.setText(rukovodstvo_vkr);
+        recenziya_raschet.setText(recenziya);
+        uchastie_v_gak_raschet.setText(uchastie_v_gak);
+        bup_clock_field.setText(vsego_chasov);
+        teacherLastname_list_combo.setSelectedItem(teacher_lastname);
+        bup_auditorn_field.setText(auditorn.toString());
+        bup_credits_field.setText(ects);
+        
+    }//GEN-LAST:event_raschet_tableMouseClicked
+
+
     public static void main(String args[]) {
        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -7733,8 +8534,56 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JTable Table_UchPlaneStudent;
     private javax.swing.JButton addButtonPlane;
     protected javax.swing.JButton addGroupButton;
+    private javax.swing.JButton add_bup_button;
+    private javax.swing.JLabel add_bup_label;
+    private javax.swing.JToolBar add_bup_toolbar;
+    private javax.swing.JButton add_bup_year_button;
+    private javax.swing.JMenuItem add_new_raschet;
     private javax.swing.JButton applyButtonPlane;
     protected javax.swing.JButton attachStudentImage;
+    private javax.swing.JFormattedTextField bup_auditorn_field;
+    private javax.swing.JLabel bup_auditorn_label;
+    private javax.swing.JToolBar bup_chage_toolbar;
+    private javax.swing.JFormattedTextField bup_clock_field;
+    private javax.swing.JLabel bup_clock_label;
+    private javax.swing.JFormattedTextField bup_credits_field;
+    private javax.swing.JLabel bup_credits_label;
+    private javax.swing.JComboBox bup_depart_combo;
+    private javax.swing.JLabel bup_depart_label;
+    private javax.swing.JTextField bup_disc_code;
+    private javax.swing.JLabel bup_disc_label;
+    private javax.swing.JComboBox bup_disс_name;
+    private javax.swing.JFormattedTextField bup_ekzamen_field;
+    private javax.swing.JLabel bup_ekzamen_label;
+    private javax.swing.JFormattedTextField bup_individual_field;
+    private javax.swing.JLabel bup_individual_label;
+    public javax.swing.JPanel bup_info_panel;
+    private javax.swing.JLabel bup_kontol_label;
+    private javax.swing.JFormattedTextField bup_kontrol_label;
+    private javax.swing.JFormattedTextField bup_kursov_field;
+    private javax.swing.JLabel bup_kursov_label;
+    private javax.swing.JFormattedTextField bup_lection_field;
+    private javax.swing.JLabel bup_lection_label;
+    private javax.swing.JPanel bup_main_pane;
+    private javax.swing.JFormattedTextField bup_nir_field;
+    private javax.swing.JLabel bup_nir_label;
+    private javax.swing.JLabel bup_practika_label;
+    private javax.swing.JComboBox bup_semestr_combo;
+    private javax.swing.JComboBox bup_semestr_combo1;
+    private javax.swing.JLabel bup_semestr_label;
+    private javax.swing.JLabel bup_semestr_label1;
+    private javax.swing.JFormattedTextField bup_seminars_field;
+    private javax.swing.JFormattedTextField bup_srs_field;
+    private javax.swing.JLabel bup_srs_label;
+    public javax.swing.JTable bup_table;
+    private javax.swing.JScrollPane bup_table_scroll;
+    private javax.swing.JTabbedPane bup_tables_panel;
+    private javax.swing.JLabel bup_years_and_label;
+    public javax.swing.JComboBox bup_years_end_combo;
+    private javax.swing.JLabel bup_years_label;
+    public javax.swing.JComboBox bup_years_start_combo;
+    private javax.swing.JFormattedTextField bup_zachet_field;
+    private javax.swing.JLabel bup_zachet_label;
     private com.toedter.calendar.JDateChooser calendarBirthStudent;
     protected javax.swing.JButton cancelGroupButton;
     private javax.swing.JComboBox chooserCounrtyStudent;
@@ -7748,6 +8597,7 @@ public class mainBdoc extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser choserDateOfPrikazZachisl;
     private javax.swing.JComboBox comboSemestrGroup;
     private javax.swing.JComboBox comboTeacherEditGroup;
+    private javax.swing.JLabel course_label;
     private com.toedter.calendar.JDateChooser dateFieldDateofbirth;
     private com.toedter.calendar.JDateChooser dateOfSostStudent;
     private com.toedter.calendar.JDateChooser dateVidachDiplBfa;
@@ -7756,6 +8606,7 @@ public class mainBdoc extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dchooserVydachiDoc1;
     private javax.swing.JButton deleteButtonPlane;
     protected javax.swing.JButton deleteGroupButton;
+    private javax.swing.JComboBox department_list_combo;
     private javax.swing.JDesktopPane descPaneStudentPhoto;
     private javax.swing.JLabel downButtonPanelText;
     private javax.swing.JPanel downPanelGroups;
@@ -7813,6 +8664,10 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JTextField fieldSostObuchStudent;
     private javax.swing.JTextField fieldSumOfContract;
     private javax.swing.JTextField fieldUsloviyaZachisleniya;
+    private javax.swing.JTextField grou_student_count;
+    private javax.swing.JTextField group_course_raschet;
+    private javax.swing.JComboBox groupsCombo;
+    private javax.swing.JPanel individual_plan;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
@@ -7836,10 +8691,14 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenuUserFIO;
@@ -7852,6 +8711,7 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -7868,6 +8728,7 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -7878,11 +8739,18 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     protected javax.swing.JTabbedPane jTabSearch;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField27;
     private javax.swing.JMenuItem jmenuExit;
     protected javax.swing.JMenuItem jmenuSettings;
     private javax.swing.JMenuItem journalBallovPrint;
     private javax.swing.JPopupMenu.Separator journalBallovPrintSep;
+    private javax.swing.JLabel kol_studvGr_label;
+    private javax.swing.JLabel konsultGR_raschet_label;
+    private javax.swing.JLabel konsultInd_raschet_label;
+    private javax.swing.JTextField konsult_group;
+    private javax.swing.JTextField konsult_ind;
+    private javax.swing.JTextField kursov_raschet;
     private javax.swing.JLabel labelCodeIdDepE;
     private javax.swing.JLabel labelHeaderDepE;
     private javax.swing.JLabel labelLaborantDepE;
@@ -7890,6 +8758,8 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JLabel labelNameDepE;
     private javax.swing.JLabel labelNomberOfBegunok;
     private javax.swing.JLabel labelPhoneDepE;
+    private javax.swing.JTextField lectures_raschet;
+    private javax.swing.JLabel lectures_raschet_label;
     private javax.swing.JTextField logAddLoginLabel;
     private com.toedter.calendar.JDateChooser logDateLabel;
     private javax.swing.JLabel logEditDetails;
@@ -7900,6 +8770,8 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JMenu menuService;
     private javax.swing.JMenu menuSettings;
     private javax.swing.JTextField nameOfTeacher;
+    private javax.swing.JTextField nir_raschet;
+    private javax.swing.JLabel nir_raschet_label;
     private javax.swing.JCheckBox numberBegunokChek;
     private javax.swing.JTextField numberOfBegunok;
     private javax.swing.JPanel panelSprStatusPPS;
@@ -7921,6 +8793,12 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JLabel planeTextLabelDisciplina;
     private javax.swing.JLabel planeTextLabelPrepodavatel;
     private javax.swing.JLabel planeTextLabelSemestr;
+    private javax.swing.JPanel po_bup_panel;
+    private javax.swing.JPanel po_raschetu_panel;
+    private javax.swing.JPopupMenu.Separator popup_raschet_separator;
+    private javax.swing.JTextField practica_raschet;
+    private javax.swing.JTextField predipl_prac;
+    private javax.swing.JLabel predipl_raschet_label;
     private javax.swing.JMenuItem printEkzamList;
     private javax.swing.JPopupMenu.Separator printEkzamListSep;
     private javax.swing.JMenuItem printGosAttest;
@@ -7941,15 +8819,28 @@ public class mainBdoc extends javax.swing.JFrame {
     protected javax.swing.JButton programmApplyButton;
     protected javax.swing.JButton programmDeleteButton;
     protected javax.swing.JButton programmEditButton;
+    private javax.swing.JToolBar raschetChasovToolbar;
+    private javax.swing.JPanel raschet_chasov_tab;
+    private javax.swing.JPopupMenu raschet_popup;
+    private javax.swing.JTable raschet_table;
+    private javax.swing.JScrollPane raschet_table_scroll;
+    private javax.swing.JPanel raspred_uchVrem_panel;
     protected javax.swing.JButton raznoskaButton;
     private javax.swing.JButton raznoskaButtonPlane;
     private javax.swing.JLabel raznoskaLog;
+    private javax.swing.JToolBar reaschetChasovToolbarAdd;
+    private javax.swing.JLabel recenzirovanie_raschet_label;
+    private javax.swing.JTextField recenziya_raschet;
+    private javax.swing.JTextField rukov_vkr;
+    private javax.swing.JLabel rukovodstvo_raschet_label;
     private javax.swing.JButton searchButton;
     private javax.swing.JButton searchButton1;
     private javax.swing.JTable searchStateResult;
     private javax.swing.JTextField searchStateTextField;
     private javax.swing.JTable searchStudentTable;
     private javax.swing.JTextField searchTextField;
+    private javax.swing.JTextField seminar_raschet;
+    private javax.swing.JLabel seminars_raschet_label;
     private javax.swing.JButton sprAddCoun;
     private javax.swing.JButton sprAddDisciplines;
     private javax.swing.JButton sprAddDoljnost;
@@ -8041,6 +8932,9 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JTable tableUchenStep;
     private javax.swing.JTable tableUchenZvan;
     private javax.swing.JTable tableUsZachisl;
+    private javax.swing.JComboBox teacherLastname_list_combo;
+    private javax.swing.JLabel teacher_lastname_label;
+    private javax.swing.JPopupMenu teachers_popup;
     private javax.swing.JLabel textAttestatStudent;
     private javax.swing.JLabel textBirthStudent;
     private javax.swing.JLabel textCodeOfPodrazdel;
@@ -8088,8 +8982,13 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JLabel textPropiskaStudent;
     private javax.swing.JLabel textRegionStudent;
     private javax.swing.JLabel textSexStudent;
+    private javax.swing.JLabel uchastie_v_gak_label;
+    private javax.swing.JTextField uchastie_v_gak_raschet;
     private javax.swing.JLabel uchplstudID;
     protected javax.swing.JButton updateTableGroups;
+    private javax.swing.JButton update_bup_table;
+    private javax.swing.JMenuItem update_raschet_table;
+    private javax.swing.JMenuItem update_teacher_table;
     private javax.swing.JButton updtCountry;
     private javax.swing.JButton updtDisc;
     private javax.swing.JButton updtDolj;
@@ -8101,6 +9000,7 @@ public class mainBdoc extends javax.swing.JFrame {
     private javax.swing.JButton updtUslZach;
     private javax.swing.JButton updtUstep;
     private javax.swing.JButton updtUzvan;
+    private javax.swing.JLabel vkrRukov_raschet_label;
     private javax.swing.JButton workWithVedomButton;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables

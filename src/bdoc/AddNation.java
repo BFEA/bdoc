@@ -16,7 +16,7 @@ public class AddNation extends javax.swing.JFrame {
             
     public AddNation() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
   

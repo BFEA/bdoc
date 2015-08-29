@@ -13,7 +13,7 @@ public class AddZachislenie extends javax.swing.JFrame {
     
     public AddZachislenie() {
         initComponents();
-         conn = dbconnector.ConnectorDb();
+         conn = dbconnector.getConnection();
     }
 
    

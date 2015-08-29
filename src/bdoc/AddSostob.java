@@ -13,7 +13,7 @@ public class AddSostob extends javax.swing.JFrame {
             
     public AddSostob() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
 

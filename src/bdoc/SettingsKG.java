@@ -15,7 +15,7 @@ public class SettingsKG extends javax.swing.JFrame {
 
     public SettingsKG() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
         FillAll();
     }
     

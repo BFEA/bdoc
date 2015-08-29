@@ -12,7 +12,7 @@ public class AddStatus extends javax.swing.JFrame {
     
     public AddStatus() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
   

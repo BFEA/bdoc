@@ -6,14 +6,13 @@ import javax.swing.JOptionPane;
 
 public class AddCountry extends javax.swing.JFrame {
 
-    
             Connection conn = null;
             ResultSet rs = null;
             PreparedStatement pst = null;
    
     public AddCountry() {
         initComponents();
-        conn = dbconnector.ConnectorDb();
+        conn = dbconnector.getConnection();
     }
 
     @SuppressWarnings("unchecked")
